@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../assets/img/contact-img.svg";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { Linkedin, Whatsapp, Mailbox2 } from 'react-bootstrap-icons';
+import contactImg from "../assets/img/contact-img.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
@@ -59,32 +60,10 @@ export const Contact = () => {
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <h2>Get In Touch</h2>
-                <form onSubmit={handleSubmit}>
-                  <Row>
-                    <Col size={12} sm={6} className="px-1">
-                      <input type="text" value={formDetails.firstName} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
-                    </Col>
-                    <Col size={12} sm={6} className="px-1">
-                      <input type="text" value={formDetails.lasttName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)}/>
-                    </Col>
-                    <Col size={12} sm={6} className="px-1">
-                      <input type="email" value={formDetails.email} placeholder="Email Address" onChange={(e) => onFormUpdate('email', e.target.value)} />
-                    </Col>
-                    <Col size={12} sm={6} className="px-1">
-                      <input type="tel" value={formDetails.phone} placeholder="Phone No." onChange={(e) => onFormUpdate('phone', e.target.value)}/>
-                    </Col>
-                    <Col size={12} className="px-1">
-                      <textarea rows="6" value={formDetails.message} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
-                      <button type="submit"><span>{buttonText}</span></button>
-                    </Col>
-                    {
-                      status.message &&
-                      <Col>
-                        <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
-                      </Col>
-                    }
-                  </Row>
-                </form>
+                <p>You can contact me in Linkedin, WhatsApp and by Email.</p>
+                <Button href="mailto:valentinodelforvillar@gmail.com" style={{margin:"10px"}}><Mailbox2 size={20}/>  E-mail me!</Button>
+                <Button href="https://www.linkedin.com/in/vlevillar/" style={{margin:"10px"}} target="_blank"><Linkedin size={20}/>  Let’s Connect!</Button>
+                <Button href="https://wa.me/5493517866323" style={{margin:"10px"}} target="_blank"><Whatsapp size={20}/>  WhatsApp me!</Button>
               </div>}
             </TrackVisibility>
           </Col>
